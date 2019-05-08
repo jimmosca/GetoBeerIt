@@ -30,6 +30,12 @@ body {
   border-bottom: #148F77 solid 0.25rem ;
 }
 
+.textito {
+
+  text-align: center;
+  color: #148F77;
+}
+
 .icon-cards {
   position: relative;
   width: 60vw;
