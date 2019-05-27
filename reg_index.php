@@ -10,6 +10,8 @@ require "navBar.php";
   <p>Usuario existente</p>
   </div>";
 } ?>
+<script src="script.js"></script>
+
 
 <div class="container mt-5 d-flex justify-content-center align-items-center">
   <form class="border-primary" method="post" action="registro.php">

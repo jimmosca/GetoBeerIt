@@ -5,9 +5,9 @@ function verificarUsuario() {
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://localhost/mic/GetoBeerIt/registro.php");
-  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
 
-  xmlhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log("vamo bien");
 
@@ -29,6 +29,6 @@ function verificarUsuario() {
     }
   };
 
-  xmlhttp.send(objJSON);
+  xhttp.send(objJSON);
 
 }
