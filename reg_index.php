@@ -10,6 +10,8 @@ require "navBar.php";
   <p>Usuario existente</p>
   </div>";
 } ?>
+<script src="script.js"></script>
+
 
 <script src="script.js" charset="utf-8"></script>
 <div class="container mt-5 d-flex justify-content-center align-items-center">
