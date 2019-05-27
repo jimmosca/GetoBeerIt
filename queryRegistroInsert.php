@@ -5,10 +5,10 @@ $sql = "INSERT INTO usuarios (id_usuario, contrasena, direccion, telefono, email
 $result = $conn->query($sql);
 
 if ($result === TRUE) {
-echo "Nuevo registro realizado correctamente";
-echo "</hr>";
+  $_SESSION["nombre"] = $_POST["usr"];
+  header("Location: index.php");
 } else {
-echo "Error: " . $sql . "<br>" . $conn->error;
+header("Location: reg_index.php?error=usrExists");
 }
 $conn->close();
  ?>

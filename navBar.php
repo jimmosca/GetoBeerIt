@@ -9,44 +9,22 @@
     </button>
     <div class=" collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="">Inicio Sesion</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Regristro</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Mi Cuenta</a></li>
+
+        <?php
+        if (isset($_GET["sesion"]) && $_GET["sesion"]=="cerrada") {
+          session_unset();
+        }
+         if (isset($_SESSION["nombre"])) {
+          echo "<li class='nav-item'><a class='nav-link' href='cerrarSesion.php'>Cerrar sesion</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href=''>Carrito de la Compra</a></li>";
+        }else{
+          echo "<li class='nav-item'><a class='nav-link' href='login.php'>Inicio Sesion</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='reg_index.php'>Registro</a></li>";
+
+        } ?>
+
+
       </ul>
     </div>
   </div>
 </nav>
-<?php 	if(isset($_POST["nombre"]) && isset($_POST["contra"]) ){
-  /* Me han enviado el formulario */
-
-  $nomUsu = $_POST["nombre"];
-  $contra = $_POST["contra"];
-  // Realizar una consulta MySQL
-  $query = "SELECT * FROM usuarios WHERE usuarios.Usuario ='". mysqli_real_escape_string($conn, $nomUsu)."' AND usuarios.Contrasena = '". mysqli_real_escape_string($conn, $contra)."'";
-
-
-  $result = $conn->query($query);
-
-
-  if($result->num_rows > 0) {
-
-    // echo "Correctamente logeado";
-
-    session_start();
-
-    $_SESSION["nombre"] = $nomUsu;
-
-    header("Location: bienvenido.php");
-
-  }else{
-
-    header("Location: inicio.php?error=notOk");
-
-  }
-
-
-}else{
-
-
-
-} ?>

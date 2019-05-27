@@ -14,12 +14,12 @@ function inicioPag($title, $style){
     <title>$title</title>
 
   </head>
-  <body>";
+  <body class='text-dark lead text-left'>";
 
 
 }
 $servername = "localhost";
-$user = "root"; 
+$user = "root";
 $password = "";
 $dbname = "cervezas_bd";
 $conn  =  new  mysqli($servername,$user,$password, $dbname);
@@ -27,8 +27,10 @@ $conn  =  new  mysqli($servername,$user,$password, $dbname);
 
 if ($conn->connect_error) {
 die("Error: " . $conn->connect_error);
-}else
-echo "Conexión con BBDD correcta" ;
+}
 
-include "navBar.php";
+session_start();
+
+
+
 ?>

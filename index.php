@@ -1,6 +1,7 @@
 <?php
 include "arriba.php";
 inicioPag("GetoBeerlt", "inicio.css");
+include "navBar.php";
  ?>
 
  <div class="d-flex align-items-center justify-content-center">
