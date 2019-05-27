@@ -1,6 +1,6 @@
 <?php
 require "arriba.php";
-inicioPag("Registro","wew.css");
+inicioPag("Registro","'wew.css'");
 require "navBar.php";
 ?>
 
@@ -11,6 +11,7 @@ require "navBar.php";
   </div>";
 } ?>
 
+<script src="script.js" charset="utf-8"></script>
 <div class="container mt-5 d-flex justify-content-center align-items-center">
   <form class="border-primary" method="post" action="registro.php">
 
