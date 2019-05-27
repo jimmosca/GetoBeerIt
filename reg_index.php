@@ -19,8 +19,8 @@ require "navBar.php";
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputUsuario">Usuario</label>
-        <input id="usr" type="text" class="form-control" name="usr" placeholder="Usuario" required oninvalid="this.setCustomValidity('Usuario')" oninput="this.setCustomValidity('')" onfocusout="verificarUsuario()" value="mic">
+        <label for="inputUsuario">Usuario <p id="msjError" class="d-none">usuario existente</p></label>
+        <input id="usr" type="text" class="form-control" name="usr" placeholder="Usuario" required oninvalid="this.setCustomValidity('Usuario')" oninput="this.setCustomValidity('')" onfocusout="verificarUsuario()">
       </div>
       <div class="form-group col-md-6">
         <label for="inputContra">Contraseña</label>
@@ -53,7 +53,7 @@ require "navBar.php";
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Aceptar</button>
+    <button id="btn" type="submit" class="btn btn-primary">Aceptar</button>
   </form>
 </div>
 <?php
