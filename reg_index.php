@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Required meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="./style.css">
+<title>Registro</title>
+</head>
+<body class="text-dark lead text-left">
+
+  <h1 class="display-4 text-center mt-2">Registro</h1>
+
+  <div class="container mt-5 d-flex justify-content-center align-items-center">
+    <form class="border-primary" method="post" action="registro.php">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputNombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" placeholder="Nombre" required oninvalid="this.setCustomValidity('Nombre')" oninput="this.setCustomValidity('')">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputApellido">Apellido</label>
+          <input type="text" class="form-control" name="apellido" placeholder="Apellido" required oninvalid="this.setCustomValidity('Apellido')" oninput="this.setCustomValidity('')">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTelefono">Telefono</label>
+          <input type="text" class="form-control" name="telefono" placeholder="Telefono" required oninvalid="this.setCustomValidity('Telefono')" oninput="this.setCustomValidity('')">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Email</label>
+          <input type="text" class="form-control" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Email')" oninput="this.setCustomValidity('')">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputDireccion">Direccion</label>
+        <input type="text" class="form-control" name="direccion" placeholder="Madrid, vicalvaro, calle patata, 22" required oninvalid="this.setCustomValidity('Direccion')" oninput="this.setCustomValidity('')">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputUsuario">Usuario</label>
+          <input type="text" class="form-control" name="usr" placeholder="Usuario" required oninvalid="this.setCustomValidity('Usuario')" oninput="this.setCustomValidity('')">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputContra">Contraseña</label>
+          <input type="password" class="form-control" name="pwd" placeholder="Contraseña" required oninvalid="this.setCustomValidity('Contraseña')" oninput="this.setCustomValidity('')">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Aceptar</button>
+    </form>
+  </div>
+</body>
+</html>
