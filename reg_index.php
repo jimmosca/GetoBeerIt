@@ -17,7 +17,7 @@ require "navBar.php";
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputUsuario">Usuario</label>
-        <input type="text" class="form-control" name="usr" placeholder="Usuario" required oninvalid="this.setCustomValidity('Usuario')" oninput="this.setCustomValidity('')">
+        <input id="usr" type="text" class="form-control" name="usr" placeholder="Usuario" required oninvalid="this.setCustomValidity('Usuario')" oninput="this.setCustomValidity('')" onfocusout="verificarUsuario()" value="mic">
       </div>
       <div class="form-group col-md-6">
         <label for="inputContra">Contraseña</label>
