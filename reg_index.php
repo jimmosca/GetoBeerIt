@@ -53,5 +53,5 @@ require "navBar.php";
     <button type="submit" class="btn btn-primary">Aceptar</button>
   </form>
 </div>
-</body>
-</html>
+<?php
+require 'abajo.php'; ?>
