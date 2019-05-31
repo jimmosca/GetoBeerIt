@@ -6,6 +6,11 @@ require "navBar.php";
 
 <h1 class = " mt-5 pt-5 text-center"><img src="imagenes/carritocompra.png">   CARRITO DE LA COMPRA   <img src="imagenes/carritocompra.png"></h1>
 <?php
+
+
+for ($anadido=0; $anadido < 1; $anadido++) {
+  // code...
+}
 $carrito = array ( "Cerveza1"  => array ( "Precio" => 11.3, "Cantidad" => 1),
                    "Cerveza2"  => array ( "Precio" => 12.3, "Cantidad" => 1),
                    "Cerveza3"  => array ( "Precio" => 13.3, "Cantidad" => 4),
@@ -21,9 +26,11 @@ echo"
         <div class='ml-4'>
           {$clave}
         </div>
-        <div> <input type='button' class='boton' name='menos' value = '-' onclick=restar()> Cantidad:{$valor['Cantidad']} <input type='button' class='boton' name='menos' value = '+' onclick=sumar()></div>
-        <div>
-           Precio: {$valor['Precio']}
+        <div col-6> Cantidad: <input type='number' class='form-control col-5' onclick='refrescar()' name='menos' value = {$valor['Cantidad']}></div>
+        <div>";
+$precio = $valor["Precio"] * $valor["Cantidad"];
+var_dump($precio);
+           echo "Precio: <input type='text' value=$precio class='field left col-4' readonly>
         </div>
    </div>
   <hr width='80%' />";
@@ -33,7 +40,6 @@ echo"
 
 
 }
-
 
 ?>
 

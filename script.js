@@ -4,7 +4,7 @@ function verificarUsuario() {
   objJSON = JSON.stringify(obj);
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://localhost/jaime/PHP/TiendaCerveza/comprobarUsr.php");
+  xhttp.open("POST", "http://localhost/mic/GetoBeerIt/comprobarUsr.php");
   xhttp.setRequestHeader("Content-Type", "application/json");
 
   xhttp.onreadystatechange = function() {
@@ -13,15 +13,22 @@ function verificarUsuario() {
       var respuestaJSON = JSON.parse(this.responseText);
       var usr = document.getElementById("usr");
       var msjError = document.getElementById("msjError");
-      
+      var btn = document.getElementById("btn");
+      var btnDisabled = document.createAttribute("disabled");
+      var btnEnabled = btn.getAttributeNode("disabled");
+
       if(respuestaJSON["isContained"]){
         usr.style.color = "red";
         msjError.className = "d-inline";
         msjError.style.color = "red";
+        msjError.style.fontSize = "medium";
+        btn.setAttributeNode(btnDisabled);
 
       }else{
         usr.style.color = "black";
         msjError.className = "d-none";
+        btn.removeAttributeNode(btnEnabled);
+
       }
 
 
