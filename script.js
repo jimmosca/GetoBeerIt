@@ -13,7 +13,7 @@ function verificarUsuario() {
       var respuestaJSON = JSON.parse(this.responseText);
       var usr = document.getElementById("usr");
       var msjError = document.getElementById("msjError");
-
+      
       if(respuestaJSON["isContained"]){
         usr.style.color = "red";
         msjError.className = "d-inline";

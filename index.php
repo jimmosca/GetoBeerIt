@@ -1,7 +1,7 @@
 <?php
-include "arriba.php";
+require "arriba.php";
 inicioPag("GetoBeerlt", "inicio.css");
-include "navBar.php";
+require "navBar.php";
  ?>
 
  <div class="d-flex align-items-center justify-content-center">
