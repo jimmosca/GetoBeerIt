@@ -4,7 +4,7 @@ function verificarUsuario() {
   objJSON = JSON.stringify(obj);
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://localhost/mic/GetoBeerIt/comprobarUsr.php");
+  xhttp.open("POST", "http://localhost/jaime/PHP/TiendaCerveza/comprobarUsr.php");
   xhttp.setRequestHeader("Content-Type", "application/json");
 
   xhttp.onreadystatechange = function() {
