@@ -5,13 +5,13 @@
 require "arriba.php";
 inicioPag("Catalogo", "Catalogo.css");
 require "navBar.php";
-$arrayPaises = [ "Alemania", "Bélgica", "España"];
+$arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
   ?>
  
   <script src="script.js" charset="utf-8"></script>
 
 <div class= "row">
-<div class= "col-6 "id= "formulario">
+<div class= "col-2 "id= "formulario">
 <form >
 Pais
     <select name="paises" id = "pais" >
@@ -50,8 +50,11 @@ Botellas:<br>
 <?php
 //include "Catalogo2Datos.php";
 ?>
-<div class= "col-6 "id= "solucion">
+<div class= "col-7 "id= "catalogo">
+
 SOLUCIÓN <br><br>
+<div class= "row" id="solucion"> 
+<div>
 </div>
 
 </div>

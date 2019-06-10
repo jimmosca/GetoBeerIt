@@ -59,25 +59,30 @@ function pintaProducto(objeto) {
     
 		for(var i = 0; i < arrProductos.length; i++){
       var div = document.createElement("div");
-      div.setAttribute("class","col-3");
+      div.setAttribute("class","col-12 col-md-6");
       div.setAttribute("id", "productos_" + arrProductos[i].id);
+
+      var divimage = document.createElement("div");
+      divimage.setAttribute("id","imagen");
+      var divtext =document.createElement("div");
+      divtext.setAttribute("id","texto");
       
       for (let index = 0; index < arrProductos.length; index++) {
+
+        var img = document.createElement("img");
+        img.setAttribute("src", "imagenes/" + arrProductos[i].imagen);
 
         var parrafonombre = document.createElement("p");
         var parrafotipo = document.createElement("p");
         var parrafoprecio = document.createElement("p");
         var parrafobotella = document.createElement("p");
         var parrafopais = document.createElement("p");
-        var img = document.createElement("img");
-        img.setAttribute("src", arrProductos[i].imagen);
-
-    
+      
         var nombre = document.createTextNode(arrProductos[i].nombre);
         var tipo = document.createTextNode(arrProductos[i].tipo);
-        var precio = document.createTextNode(arrProductos[i].precio);
+        var precio = document.createTextNode(arrProductos[i].precio+"€");
         var pais = document.createTextNode(arrProductos[i].pais);
-        var botella = document.createTextNode(arrProductos[i].botella);
+        var botella = document.createTextNode(arrProductos[i].botella+"ml");
 
         parrafonombre.appendChild(nombre);
         parrafotipo.appendChild(tipo);
@@ -86,12 +91,17 @@ function pintaProducto(objeto) {
         parrafobotella.appendChild(botella);
         
       }
-      div.appendChild(parrafonombre);
-      div.appendChild(parrafotipo);
-      div.appendChild(parrafoprecio);
-      div.appendChild(parrafopais);
-      div.appendChild(parrafobotella);
-      div.appendChild(img);
+      divimage.appendChild(img);
+
+      div.appendChild(divimage);
+      divtext.appendChild(parrafonombre);
+      divtext.appendChild(parrafotipo);
+      divtext.appendChild(parrafoprecio);
+      divtext.appendChild(parrafopais);
+      divtext.appendChild(parrafobotella);
+
+      div.appendChild(divtext);
+     
 
       general.appendChild(div);
       

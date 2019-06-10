@@ -1,8 +1,14 @@
-#formulario {
-    
+img {
+    width: 250px;
+    height: 250px;
 }
 .row {
-    width: 100%;
+    width: 90%;
     margin-top: 8%;
     margin-left: 5%;
 }
+.col-12 {
+    display: flex;
+   
+}
+

@@ -11,10 +11,13 @@ if (isset($parametres)) {
     $mensajeRecibido = json_decode($parametres,true);
     $count = 0;
 
-
     foreach ($mensajeRecibido as $key => $value) {
         if (  $count == 0) {
+            if ($value == "Selecciona") {
+                $value = ""; 
+            }else{
             $where ="where ".$key." = '".$value."'" ;
+            }
         }
         else {
             if($key == "precio") {
