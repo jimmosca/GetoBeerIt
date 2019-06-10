@@ -1,81 +1,77 @@
 <?php
 //********Conexión con la base de datos***********
+require "conexionBBDD.php";
+//Guardar en variable los datos recibidos de script /Catalogo
+$parametres = file_get_contents("php://input");
+//$parametres = '{"pais":"España","precio":"1-5","botella":"330"}';
 
-function conexionBD2(){
-$servername = "localhost";
-$user = "root";
-$password = "";
-$dbname = "cervezas_bd";
-$conn = new mysqli($servername, $user,$password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-die("Error: " . $conn->connect_error);
-}
-
-if (!$conn->set_charset("utf8")) {
-    printf("Error cargando el conjunto de caracteres utf8: %s\n", $conn->error);
-    exit();
-}
 
 $where="";
-if (isset ($_POST["formulario"])) {
-    
-    switch($_POST["formulario"]){
-        case 'formulario1':
-            if(isset($_POST['submit'])){
-            $where= "where pais = '".$_POST['paises']."'";
-            }
-            break;
-        case 'formulario2':
-            if(isset($_POST['submit'])){
-                if(!empty($_POST['check_list'])){
-                foreach($_POST['check_list'] as $selected){
-                    $tipos= $tipos." and ".$selected;
-                echo $selected."</br>";
-                }
-                }
-                }
-            break;
-         case 'formulario3':
-            if(isset($_POST['submit'])){
-                echo $_POST['radio'];
-            $where= "where precio = '".$_POST['radio']."'";
-            }
-                break;
-        case 'formulario4':
-            if(isset($_POST['submit'])){
-                echo $_POST['botle'];
-            $where= "where precio = '".$_POST['botle']."'";
-            }
-                break;
+if (isset($parametres)) {
+    $mensajeRecibido = json_decode($parametres,true);
+    $count = 0;
+
+
+    foreach ($mensajeRecibido as $key => $value) {
+        if (  $count == 0) {
+            $where ="where ".$key." = '".$value."'" ;
+        }
+        else {
+            if($key == "precio") {
+               
+                $pricevalue =   explode( '-', $value );
+
+                $where.= " and ".$key." between ".$pricevalue[0]." and ".$pricevalue[1] ;
+            } else {
+                $where.=" and ".$key." = '".$value."'" ;
+            }      
+        }
+        
+        $count ++;
     }
 }
-
-    $sql = "select tipo_cerveza.nombre as Tipo, productos.nombre, productos.precio, 
+  
+    $arrMensaje = array (); // Este array es el codificaremos como JSON tanto si hay resultado como si hay error
+    
+    $query = "select id_producto as id , tipo_cerveza.nombre as tipo , productos.nombre, productos.precio, 
     productos.imagen, productos.pais, productos.botella from productos 
     JOIN tipo_cerveza on productos.id_tipo = tipo_cerveza.id_cerveza ".$where;
-   
-    $arraySql = array ();
-    $result = $conn->query($sql);
-                // ¿He tenido datos en mi consulta? este es el if 
-                if ($result->num_rows > 0) {
-                //Con el while hacemos el recorrido el fetch_assoc es para crear un asociativo
-                while($row = $result->fetch_assoc()) {
-                    array_push($arraySql, $row);
-                
-                // Por cada columna, escribimos el row["lacolumnaquesea"]
-                }
-                } else {
-                echo "0 results";
-                } 
-                
-                $dibuja = json_encode($arraySql, JSON_PRETTY_PRINT);
-
-                //echo "<pre>"
-                echo $dibuja;
-               // echo "</pre>";
-            
+    
+    $result = $conn->query ( $query );
+    
+    if (isset ( $result ) && $result) { // Si pasa por este if, la query está está bien y se obtiene resultado
         
-}
-conexionBD2();
+        if ($result->num_rows > 0) { // Aunque la query esté bien puede no obtenerse resultado (tabla vacía). Comprobamos antes de recorrer
+            
+            $arrPrincipal = array ();
+            
+            while ( $row = $result->fetch_assoc () ) {
+                $arrPrincipal [] = $row;
+            }
+            
+            // Añadimos al $arrMensaje el array de jugadores y añadimos un campo para indicar que todo ha ido OK
+            $arrMensaje ["estado"] = "ok";
+            $arrMensaje ["productos"] = $arrPrincipal;
+        } else {
+
+            $arrMensaje ["estado"] = "ok";
+            $arrMensaje ["productos"] = [ ]; // Array vacío si no hay resultados
+        }
+    } else {
+        
+        $arrMensaje ["estado"] = "error";
+        $arrMensaje ["mensaje"] = "SE HA PRODUCIDO UN ERROR AL ACCEDER A LA BASE DE DATOS";
+        $arrMensaje ["error"] = $conn->error;
+        $arrMensaje ["query"] = $query;
+    }
+    
+    $mensajeJSON = json_encode ( $arrMensaje, JSON_PRETTY_PRINT );
+    
+    // echo "<pre>"; // Descomentar si se quiere ver resultado "bonito" en navegador. Solo para pruebas
+    echo $mensajeJSON;
+    // echo "</pre>"; // Descomentar si se quiere ver resultado "bonito" en navegador
+    
+    $conn->close ();
+
+?>  
 
