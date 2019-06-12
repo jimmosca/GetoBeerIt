@@ -60,7 +60,7 @@ function pintaProducto(objeto) {
 
 		for(var i = 0; i < arrProductos.length; i++){
       var div = document.createElement("div");
-      div.setAttribute("class","col-12 col-md-6");
+      div.setAttribute("class","col-12 col-md-6 col-lg-4");
       div.setAttribute("id", "productos_" + arrProductos[i].id);
       div.setAttribute("onclick","producto(this.id)");
 
