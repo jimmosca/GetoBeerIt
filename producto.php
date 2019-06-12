@@ -7,17 +7,20 @@ require "navBar.php";
 echo '<script>console.log("'.$_GET["idCerve"].'")</script>';
 
 if (isset($_GET["idCerve"])) {
-    $selected = (int)$_GET["idCerve"][strlen($_GET["idCerve"])-1];
-    echo '<script>console.log("'.$selected.'")</script>';
+    //$selected = (int)$_GET["idCerve"][strlen($_GET["idCerve"])-1];
+    $arrAux = explode( '_', $_GET["idCerve"] );
+    $selected = (int) $arrAux[1];
     //$selected = $_GET["idCerve"]{strlen($_GET["idCerve"])-1};
-    var_dump($selected);
 
-    $query = "SELECT productos.nombre as 'producto', marcas.nombre AS 'marca', tipo_cerveza.nombre AS 'tipo', pais AS 'pais', graduacion AS 'graduacion', productos.imagen as 'imagen', usuarios.nombre as 'usuario', opiniones.texto as 'opinion', opiniones.estrellas as 'estrellas' FROM productos
-JOIN marcas ON marcas.id_marca = productos.id_marca 
-JOIN tipo_cerveza ON tipo_cerveza.id_cerveza = productos.id_tipo 
-JOIN opiniones ON opiniones.id_producto = productos.id_producto 
-JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario
-where productos.id_producto=".$selected;
+    $query = "SELECT productos.nombre AS 'producto', productos.precio AS 'precio', productos.imagen AS 'imagen', productos.stock AS 'stock', productos.pais AS 'pais', productos.graduacion AS 'graduacion', marcas.nombre AS 'marca', tipo_cerveza.nombre AS 'tipo'
+    FROM productos
+    JOIN marcas ON marcas.id_marca = productos.id_marca
+    JOIN tipo_cerveza ON tipo_cerveza.id_cerveza = productos.id_tipo
+    WHERE productos.id_producto=".$selected;
+    $queryOp = "SELECT opiniones.texto AS 'opinion', opiniones.estrellas AS 'estrellas', usuarios.id_usuario AS 'usuario'
+    FROM opiniones
+    JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario 
+    where opiniones.id_producto=".$selected;
 
 
     echo " <br>
@@ -145,7 +148,7 @@ where productos.id_producto=".$selected;
     echo "  <th> Estrellas </th>";
     echo "</tr>";
 
-    $result = $conn->query($query);
+    $result = $conn->query($queryOp);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
