@@ -51,6 +51,7 @@ function catalogo(){
 
 }
 
+
 function pintaProducto(objeto) {
   var general = document.getElementById("solucion");
     general.innerHTML = " ";

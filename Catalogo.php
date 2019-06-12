@@ -46,11 +46,11 @@ Botellas:<br>
 </form>
 </div>
 
-<div class= "col-7 "id= "catalogo">
+<div class= "col-7 "id= "catalogo" >
 
 SOLUCIÓN <br><br>
 <div class= "row" id="solucion"> 
-
+<script> catalogo();</script>
 <div>
 </div>
 </div>
