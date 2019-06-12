@@ -15,7 +15,7 @@ $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
 Pais
     <select name="paises" id = "pais" >
     <?php   
-for ($i=0; $i <3 ; $i++) { 
+for ($i=0; $i <4 ; $i++) { 
     echo "<option>".$arrayPaises[$i]."</option>";
 }
     ?>
