@@ -163,7 +163,17 @@ if (isset($_GET["idCerve"])) {
             echo "<tr>";
             echo "<td>" . $row["usuario"], "</td>";
             echo "<td>" . $row["opinion"], "</td>";
-            echo "<td>" . $row["estrellas"], "</td>" . PHP_EOL;
+            if($row["estrellas"] = 1){
+                echo "<td><img src='imagenes/1estrella.jpeg id='1'></td>" . PHP_EOL;    
+            }else if($row["estrellas"] = 2){
+                echo "<td><img src='imagenes/2estrella.jpeg id='2'></td>" . PHP_EOL;  
+            }else if($row["estrellas"] = 3){
+                echo "<td><img src='imagenes/3estrella.jpeg id='3'></td>" . PHP_EOL;  
+            }else if($row["estrellas"] = 4){
+                echo "<td><img src='imagenes/4estrella.jpeg id='4'></td>" . PHP_EOL;  
+            }else {
+                echo "<td><img src='imagenes/5estrella.jpeg id='5'></td>" . PHP_EOL;  
+            }
             echo "</tr>";
         }
     } else {
