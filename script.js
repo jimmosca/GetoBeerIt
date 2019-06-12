@@ -115,7 +115,7 @@ function pintaProducto(objeto) {
 
 
       div.appendChild(divtext);
-      
+
 
 
       general.appendChild(div);

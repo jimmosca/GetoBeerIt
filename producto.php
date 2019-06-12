@@ -19,7 +19,7 @@ if (isset($_GET["idCerve"])) {
     WHERE productos.id_producto=".$selected;
     $queryOp = "SELECT opiniones.texto AS 'opinion', opiniones.estrellas AS 'estrellas', usuarios.id_usuario AS 'usuario'
     FROM opiniones
-    JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario 
+    JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario
     where opiniones.id_producto=".$selected;
 
 
@@ -163,16 +163,16 @@ if (isset($_GET["idCerve"])) {
             echo "<tr>";
             echo "<td>" . $row["usuario"], "</td>";
             echo "<td>" . $row["opinion"], "</td>";
-            if($row["estrellas"] == 1){  
-                echo "<td><img src='imagenes/1estrella.png' id='1' height='40'></td>";    
+            if($row["estrellas"] == 1){
+                echo "<td><img src='imagenes/1estrella.png' id='1' height='40'></td>";
             }else if($row["estrellas"] == 2){
-                echo "<td><img src='imagenes/2estrella.png' id='2' height='40'></td>";  
+                echo "<td><img src='imagenes/2estrella.png' id='2' height='40'></td>";
             }else if($row["estrellas"] == 3){
-                echo "<td><img src='imagenes/3estrella.png' id='3' height='40'></td>";  
+                echo "<td><img src='imagenes/3estrella.png' id='3' height='40'></td>";
             }else if($row["estrellas"] == 4){
-                echo "<td><img src='imagenes/4estrella.png' id='4' height='40'></td>";  
+                echo "<td><img src='imagenes/4estrella.png' id='4' height='40'></td>";
             }else {
-                echo "<td><img src='imagenes/5estrella.png' id='5' height='40'></td>";  
+                echo "<td><img src='imagenes/5estrella.png' id='5' height='40'></td>";
             }
             echo "</tr>";
         }
