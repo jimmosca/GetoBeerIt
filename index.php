@@ -8,66 +8,57 @@ require "navBar.php";
   <h3 class="text-center titulo">NUEVOS PRODUCTOS</h3>
 </div>
 
-<figure class="icon-cards mt-3">
+<figure class="icon-cards mt-5 ">
   <div class="icon-cards__content">
-    <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-      <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo1.jpg"><h2 class="textito">Cerveza 1</h2></a>
-    </span>
+    <?php
+    $query = "SELECT id_producto, nombre, imagen
+              FROM productos
+              WHERE novedad = true
+              LIMIT 3";
+    $result = $conn->query($query);
+    if (isset($result) && $result) {
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<div class='icon-cards__item d-flex align-items-center justify-content-center'><span class='h1'>
+            <a href='./producto.php?idCerve=producto_".$row['id_producto']."'><img class='d-block w-50' src='imagenes/".$row['imagen']."'><h2 class='textito'>".$row['nombre']."</h2></a>
+          </span>
+        </div>";
+        }
+      }
+    }else{
+      echo "<p class='text-center'>Actualmente no hay productos novedosos</p>";
+    }
+     ?>
   </div>
-  <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-    <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo2.jpg"><h2 class="textito">Cerveza 2</h2></a>
-  </span>
-</div>
-<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-  <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo3.jpg"><h2 class="textito">Cerveza 3</h2></a>
-</span>
-</div>
-</div>
 </figure>
 
 <div class="d-flex align-items-center justify-content-center">
-  <h3 class="text-center titulo">EN OFERTA</h3>
+  <h3 class="text-center titulo mt-5">EN OFERTA</h3>
 </div>
 
-<figure class="icon-cards mt-3">
+<figure class="icon-cards mt-5 ">
   <div class="icon-cards__content">
-    <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-      <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo1.jpg"><h2 class="textito">Cerveza 1</h2></a>
-    </span>
-  </div>
-  <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-    <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo2.jpg"><h2 class="textito">Cerveza 2</h2></a>
-  </span>
-</div>
-<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-  <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo3.jpg"><h2 class="textito">Cerveza 3</h2></a>
-</span>
-</div>
+    <?php
+    $query = "SELECT id_producto, nombre, imagen
+              FROM productos
+              WHERE descuento = true
+              LIMIT 3";
+    $result = $conn->query($query);
+    if (isset($result) && $result) {
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<div class='icon-cards__item d-flex align-items-center justify-content-center'><span class='h1'>
+            <a href='./producto.php?idCerve=producto_".$row['id_producto']."'><img class='d-block w-50' src='imagenes/".$row['imagen']."'><h2 class='textito'>".$row['nombre']."</h2></a>
+          </span>
+        </div>";
+        }
+      }
+    }else{
+      echo "<p class='text-center'>Actualmente no hay productos con descuento</p>";
+    }
+     ?>
 </div>
 </figure>
-
-<div class="d-flex align-items-center justify-content-center">
-  <h3 class="text-center titulo">ULTIMOS PRODUCTOS</h3>
-</div>
-
-<figure class="icon-cards mt-3">
-  <div class="icon-cards__content">
-    <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-      <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo1.jpg"><h2 class="textito">Cerveza 1</h2></a>
-    </span>
-  </div>
-  <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-    <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo2.jpg"><h2 class="textito">Cerveza 2</h2></a>
-  </span>
-</div>
-<div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1">
-  <a href=""><img class="d-block w-100" src="imagenes/fotoEjemplo3.jpg"><h2 class="textito">Cerveza 3</h2></a>
-</span>
-</div>
-</div>
-</figure>
-
-
 
 <script>
 

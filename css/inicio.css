@@ -10,13 +10,12 @@
 .titulo{
 
   margin-top: 1.50em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
   font-size: 6vw;
   border-bottom: #148F77 solid 0.25rem ;
 }
 
 .textito {
-
   text-align: center;
   color: #148F77;
 }
@@ -36,7 +35,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  margin-top: 20px;
+  margin-top: 50px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translateZ(-30vw) rotateY(0);

@@ -115,7 +115,7 @@ function pintaProducto(objeto) {
 
 
       div.appendChild(divtext);
-      
+
 
 
       general.appendChild(div);
@@ -179,7 +179,32 @@ elto.innerHTML="Eliminado ";
 
 }
 function producto(identificador){
-  console.log("Entro en producto");
-  console.log("./producto.php?idCerve=" + identificador);
   window.location.assign("./producto.php?idCerve=" + identificador);
+}
+function addCarrito(id){
+  var xhttp = new XMLHttpRequest();
+
+  var elto = document.getElementById("cantidad");
+  var cantidad = elto.value;
+
+  xhttp.open("GET", "./auxCarrito.php?id=" + id + "&cantidad=" + cantidad);
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+      var respuestaJSON = JSON.parse(this.responseText);
+
+      if(respuestaJSON["estado"] == "OK"){
+        console.log("COMMEMDEMME");
+      }else{
+        console.log("ZAMMOMODOM");
+      }
+    }else{
+      console.log(this.readyState + " " + this.status);
+      if (this.readyState == 4 && this.status == 404) {
+        alert("URL INCORRECTA");
+      }
+    }
+  };
+
+  xhttp.send();
 }
