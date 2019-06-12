@@ -35,7 +35,7 @@ function catalogo(){
  console.log(objJSON);
 
  var xmlhttp = new XMLHttpRequest();
- var url = "http://localhost/bea/GetoBeerIt/Catalogo2Datos.php";
+ var url = "./Catalogo2Datos.php";
 
  xmlhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
@@ -61,8 +61,9 @@ function pintaProducto(objeto) {
 
 		for(var i = 0; i < arrProductos.length; i++){
       var div = document.createElement("div");
-      div.setAttribute("class","col-12 col-md-6");
+      div.setAttribute("class","col-12 col-md-6 col-lg-4");
       div.setAttribute("id", "productos_" + arrProductos[i].id);
+      div.setAttribute("onclick","producto(this.id)");
 
 
       var divimage = document.createElement("div");
@@ -74,7 +75,7 @@ function pintaProducto(objeto) {
 
 
         var img = document.createElement("img");
-        img.setAttribute("src", "imagenes/" + arrProductos[i].imagen);
+        img.setAttribute("src", "./imagenes/" + arrProductos[i].imagen);
 
 
         var parrafonombre = document.createElement("p");
@@ -176,4 +177,9 @@ console.log(id);
 elto = document.getElementById(id)
 elto.innerHTML="Eliminado ";
 
+}
+function producto(identificador){
+  console.log("Entro en producto");
+  console.log("./producto.php?idCerve=" + identificador);
+  window.location.assign("./producto.php?idCerve=" + identificador);
 }
