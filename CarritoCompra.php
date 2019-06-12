@@ -40,8 +40,8 @@ if (isset($_SESSION['carrito']) && count($_SESSION['carrito'])>0) {
 
 
 <br><br><br>
-<form action="login.php" method="post" class = "col-4 offset-9" >
-  <input type="submit" value="Ok!" name="Comprar">
+<form action="confirmarCompra.php" method="post" class = "col-4 offset-9" >
+	<input type="submit" value="Ok!" name="Comprar">
   <img src="imagenes/tarjeta.png">
 </form>
 
