@@ -1,3 +1,15 @@
+
+<footer class="text-light bg-dark w-100 mt-5">
+  <div class="row justify-content-around flex-nowrap">
+    <div class="p-4">
+      <p><i class="fa fa-home"></i>   2ºB, C/ Playa de Liencres, Las Rozas, Madrid</p>
+      <p><i class="fa fa-phone"></i>   +34 666 555 444</p>
+      <p><i class="fa fa-envelope"></i>   crevecealo@u-tad.com</p>
+      <p>Copyright © 2008 Apple Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
