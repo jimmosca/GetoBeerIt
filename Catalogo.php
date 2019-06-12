@@ -40,7 +40,6 @@ $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
       <input type='radio' name='botle' value='660'><label>660 ml</label><br/>
       <input type='radio' name='botle' value='500'><label>500 ml </label><br/>
       <input type='radio' name='botle' value='330'><label>330ml</label><br/>
-
       <br>
       <input type="button" Value= "Enviar" onclick= "catalogo()">
 
