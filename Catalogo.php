@@ -16,6 +16,7 @@ Pais
     <select name="paises" id = "pais" >
     <?php   
 for ($i=0; $i <3 ; $i++) { 
+    var_dump("Hola");
     echo "<option>".$arrayPaises[$i]."</option>";
 }
     ?>

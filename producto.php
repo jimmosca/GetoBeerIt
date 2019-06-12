@@ -4,18 +4,20 @@ inicioPag("Producto", "producto.css");
 require "navBar.php";
 ?>
 <?php
-var_dump($_GET["idCerve"]);
-echo '$_GET["idCerve"]';
+echo '<script>console.log("'.$_GET["idCerve"].'")</script>';
+
 if (isset($_GET["idCerve"])) {
-    
-    $selected = $_GET["idCerve"]{strlen($_GET["idCerve"])-1};
+    $selected = (int)$_GET["idCerve"][strlen($_GET["idCerve"])-1];
+    echo '<script>console.log("'.$selected.'")</script>';
+    //$selected = $_GET["idCerve"]{strlen($_GET["idCerve"])-1};
     var_dump($selected);
 
     $query = "SELECT productos.nombre as 'producto', marcas.nombre AS 'marca', tipo_cerveza.nombre AS 'tipo', pais AS 'pais', graduacion AS 'graduacion', productos.imagen as 'imagen', usuarios.nombre as 'usuario', opiniones.texto as 'opinion', opiniones.estrellas as 'estrellas' FROM productos
 JOIN marcas ON marcas.id_marca = productos.id_marca 
 JOIN tipo_cerveza ON tipo_cerveza.id_cerveza = productos.id_tipo 
 JOIN opiniones ON opiniones.id_producto = productos.id_producto 
-JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario";
+JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario
+where productos.id_producto=".$selected;
 
 
     echo " <br>
