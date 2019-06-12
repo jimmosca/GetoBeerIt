@@ -51,6 +51,7 @@ function catalogo(){
 
 }
 
+
 function pintaProducto(objeto) {
   var general = document.getElementById("solucion");
     general.innerHTML = " ";
@@ -101,8 +102,7 @@ function pintaProducto(objeto) {
       divtext.appendChild(parrafobotella);
 
       div.appendChild(divtext);
-     
-
+    
       general.appendChild(div);
       
 		}

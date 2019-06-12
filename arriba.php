@@ -15,7 +15,7 @@ function inicioPag($title, $style){
     <title>$title</title>
 
   </head>
-  <body class='text-dark lead text-left'>";
+  <body class='text-dark lead text-left' > ";
 
 
 }

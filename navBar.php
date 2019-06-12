@@ -18,9 +18,10 @@
           echo "<li class='nav-item'><a class='nav-link' href='cerrarSesion.php'>Cerrar sesion</a></li>";
           echo "<li class='nav-item'><a class='nav-link' href='CarritoCompra.php'>Carrito de la Compra</a></li>";
         }else{
+          echo "<li class='nav-item'><a class='nav-link' href='Catalogo.php'>Productos</a></li>";
           echo "<li class='nav-item'><a class='nav-link' href='login.php'>Inicio Sesion</a></li>";
           echo "<li class='nav-item'><a class='nav-link' href='reg_index.php'>Registro</a></li>";
-
+          
         } ?>
 
 
