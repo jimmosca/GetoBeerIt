@@ -158,7 +158,6 @@ function verificarUsuario() {
 
 function quitar(id){
 console.log(id);
-
 elto = document.getElementById(id)
 elto.innerHTML="Eliminado ";
 
