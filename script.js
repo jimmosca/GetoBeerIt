@@ -36,7 +36,7 @@ function catalogo(){
 
  var xmlhttp = new XMLHttpRequest();
  var url = "./Catalogo2Datos.php";
- 
+
  xmlhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
      console.log(this.responseText);
@@ -56,8 +56,8 @@ function pintaProducto(objeto) {
   var general = document.getElementById("solucion");
     general.innerHTML = " ";
 
-    var arrProductos =  objeto["productos"];	
-    
+    var arrProductos =  objeto["productos"];
+
 		for(var i = 0; i < arrProductos.length; i++){
       var div = document.createElement("div");
       div.setAttribute("class","col-12 col-md-6");
@@ -68,18 +68,18 @@ function pintaProducto(objeto) {
       divimage.setAttribute("id","imagen");
       var divtext =document.createElement("div");
       divtext.setAttribute("id","texto");
-      
+
       for (let index = 0; index < arrProductos.length; index++) {
 
         var img = document.createElement("img");
-        img.setAttribute("src", "imagenes/" + arrProductos[i].imagen);
+        img.setAttribute("src", "./imagenes/" + arrProductos[i].imagen);
 
         var parrafonombre = document.createElement("p");
         var parrafotipo = document.createElement("p");
         var parrafoprecio = document.createElement("p");
         var parrafobotella = document.createElement("p");
         var parrafopais = document.createElement("p");
-      
+
         var nombre = document.createTextNode(arrProductos[i].nombre);
         var tipo = document.createTextNode(arrProductos[i].tipo);
         var precio = document.createTextNode(arrProductos[i].precio+"€");
@@ -91,7 +91,7 @@ function pintaProducto(objeto) {
         parrafoprecio.appendChild(precio);
         parrafopais.appendChild(pais);
         parrafobotella.appendChild(botella);
-        
+
       }
       divimage.appendChild(img);
 
@@ -103,9 +103,9 @@ function pintaProducto(objeto) {
       divtext.appendChild(parrafobotella);
 
       div.appendChild(divtext);
-    
+
       general.appendChild(div);
-      
+
 		}
 
 }
