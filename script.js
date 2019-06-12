@@ -35,7 +35,7 @@ function catalogo(){
  console.log(objJSON);
 
  var xmlhttp = new XMLHttpRequest();
- var url = "http://localhost/bea/GetoBeerIt/Catalogo2Datos.php";
+ var url = "./Catalogo2Datos.php";
  
  xmlhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
@@ -164,3 +164,4 @@ elto = document.getElementById(cerveza)
 elto.innerHTML="Eliminado";
 
 }
+

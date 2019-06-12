@@ -112,7 +112,7 @@ JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario";
                         </div>
                     </div>
                     <div class="col-12 mt-4 d-flex justify-content-center" id="desc1">
-                        <input type="number" name="cantidad" min="1" id="">
+                        <input type="number" name="cantidad" min="1" id="cantidad" class="mr-2">
                         <button type="button" class="btn btn-primary">Añadir al carrito</button>
                     </div>
                 </div>
