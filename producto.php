@@ -1,116 +1,179 @@
 <?php
 require "arriba.php";
-inicioPag("Producto","wewe.css");
+inicioPag("Producto", "producto.css");
 require "navBar.php";
 ?>
+<?php
+echo '<script>console.log("'.$_GET["idCerve"].'")</script>';
 
-<div class="container mt-5">
-  <div class="col-12 mt-5">
-    <div class="row">
-      <?php
-      if (isset($_GET["product"])) {
+if (isset($_GET["idCerve"])) {
+    //$selected = (int)$_GET["idCerve"][strlen($_GET["idCerve"])-1];
+    $arrAux = explode( '_', $_GET["idCerve"] );
+    $selected = (int) $arrAux[1];
+    //$selected = $_GET["idCerve"]{strlen($_GET["idCerve"])-1};
 
-        $sql = "SELECT productos.nombre, precio , stock , botella , imagen , pais , graduacion , marcas.nombre, tipo_cerveza.nombre
-      FROM productos
-      JOIN marcas on productos.id_marca = marcas.id_marca
-      JOIN tipo_cerveza on productos.id_tipo = tipo_cerveza.id_cerveza
-      WHERE productos.id_producto = $_GET['product']";
+    $query = "SELECT productos.nombre AS 'producto', productos.precio AS 'precio', productos.imagen AS 'imagen', productos.stock AS 'stock', productos.pais AS 'pais', productos.graduacion AS 'graduacion', marcas.nombre AS 'marca', tipo_cerveza.nombre AS 'tipo'
+    FROM productos
+    JOIN marcas ON marcas.id_marca = productos.id_marca
+    JOIN tipo_cerveza ON tipo_cerveza.id_cerveza = productos.id_tipo
+    WHERE productos.id_producto=".$selected;
+    $queryOp = "SELECT opiniones.texto AS 'opinion', opiniones.estrellas AS 'estrellas', usuarios.id_usuario AS 'usuario'
+    FROM opiniones
+    JOIN usuarios ON usuarios.id_usuario = opiniones.id_usuario 
+    where opiniones.id_producto=".$selected;
 
-      }
 
-      $result = $conn->query($sql);
+    echo " <br>
+<script src='script.js' charset='utf-8'></script>
+<div class='container mt-5 p-5' id='algo'>
+    <div class='col-12'>
+        <div class='row'>
 
-      if(isset($result) && $result){
+            <div class='col-5' id='imagen'>";
+
+
+    $result = $conn->query($query);
+
+    if (isset($result) && $result) {
+
         if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
 
-            echo "<p>" . $row["desc"]. "</p>";
+            $row = $result->fetch_assoc();
 
-          }
+            echo "<img src='imagenes/" . $row["imagen"], "'" . " id='cerve'>";
         } else {
-          echo "0 results";
+            echo "0 results";
         }
-      }else{
-        echo $conn->error;
-        echo "<br/>".$sql;
-      }
+    } else {
+        echo "Algo va mal";
+    }
+    echo "</div>
+     <div class='col-7' id='descripcion'>
+         <div class='row'>
+             <div class='col-12 mt-4' id='nombre'>
+                 <div class='row'>
+                     <div class='col-2 d-flex justify-content-end' id='nombre1'>
+                         <h6> Nombre:</h6>
+                     </div>
+                     <div class='col-9' id='nombre2'>";
 
 
-      ?>
+    $result = $conn->query($query);
 
-      <div class="col-5">
-        <img class="w-100" src="imagenes/cerve1.jpg">
-      </div>
-      <div class="col-7">
-        <div class="row">
-          <div class="col-12 mt-4">
-            <div class="row">
-              <div class="col-2 d-flex justify-content-end">
-                <h6> Nombre:</h6>
-              </div>
-              <div class="col-9">
-                <h5>THATS A PADDLIN</h5>
-              </div>
+    if (isset($result) && $result) {
+
+        if ($result->num_rows > 0) {
+
+            $row = $result->fetch_assoc();
+
+            echo "<h5>" . $row["producto"], "</h5>";
+        } else {
+            echo "0 results";
+        }
+    } else {
+        echo "Algo va mal";
+    }
+    echo "</div>
             </div>
-          </div>
-          <div class="col-12 mt-4">
-            <div class="col-12">
-              <h6>Descripción:</h6>
-            </div>
-            <div class="col-12">
-              <p> . $row["desc"]. </p>
-
-            </div>
-          </div>
-          <div class="col-12 mt-4 d-flex justify-content-center">
-            <button type="button" class="btn btn-primary">Añadir al carrito</button>
-          </div>
         </div>
-      </div>
+        <div class='col-12 mt-4' id='desc'>
+            <div class='col-12' id='desc1'>
+                <h6>Descripción:</h6>
+            </div>
+            <div class='col-12' id='desc2'>";
 
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="col-12">
-      <h6>Comentarios</h6>
-    </div>
-    <div class="col-12">
-      <?php
 
-      echo "<table align=start border=1>";
-      echo "<tr>";
-      echo "  <th> Usuario </th>";
-      echo "  <th> Opinión </th>";
-      echo "  <th> Estrellas </th>";
-      echo "</tr>";
 
-      $sql = "SELECT usuarios.nombre as 'usuario', opiniones.texto as 'opinion', opiniones.estrellas as 'estrellas' FROM opiniones
-      JOIN usuarios ON usuarios.id_usuario=opiniones.id_usuario
-      WHERE opiniones.id_producto=1";
-      $result = $conn->query($sql);
 
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          echo "<tr>";
-          echo "<td>" . $row["usuario"], "</td>";
-          echo "<td>" . $row["opinion"], "</td>";
-          echo "<td>" . $row["estrellas"], "</td>" . PHP_EOL;
-          echo "</tr>";
+
+    $result = $conn->query($query);
+
+    if (isset($result) && $result) { // Si pasa por este if, la query está está bien y se obtiene resultado
+
+        if ($result->num_rows > 0) { // Aunque la query esté bien puede no obtenerse resultado (tabla vacía). Comprobamos antes de recorrer
+
+
+            $row = $result->fetch_assoc();
+
+            echo "<table align=start border=1>";
+            echo "<tr>";
+            echo "<td> Marca </td>";
+            echo "<td>" . $row["marca"], "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td> Tipo </td>";
+            echo "<td>" . $row["tipo"], "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td> País </td>";
+            echo "<td>" . $row["pais"], "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td> Graduación </td>";
+            echo "<td>" . $row["graduacion"], "</td>";
+            echo "</tr>";
+            echo "</table>";
+        } else {
+            echo "0 results";
         }
-      } else {
+    } else {
+        echo "Algo va mal";
+    }
+
+
+    echo "</div>
+         </div>
+         <div class='col-12 mt-4 d-flex justify-content-center' id='desc1'>
+             <input type='number' name='cantidad' min='1' id='cantidad' class='mr-2'>
+             <button type='button' class='btn btn-primary'>Añadir al carrito</button>
+         </div>
+     </div>
+ </div>
+
+</div>
+</div>
+<div class='col-12' id='comentario'>
+<div class='col-12' id='comentario1'>
+ <h6>Comentarios</h6>
+</div>
+<div class='col-12' id='comentario2'>";
+
+
+
+
+    echo "<table align=start border=1>";
+    echo "<tr>";
+    echo "  <th> Usuario </th>";
+    echo "  <th> Opinión </th>";
+    echo "  <th> Estrellas </th>";
+    echo "</tr>";
+
+    $result = $conn->query($queryOp);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["usuario"], "</td>";
+            echo "<td>" . $row["opinion"], "</td>";
+            echo "<td>" . $row["estrellas"], "</td>" . PHP_EOL;
+            echo "</tr>";
+        }
+    } else {
         echo "0 results";
-      }
-      echo "</table>";
+    }
+    echo "</table>";
 
+    $conn->close(); // cierre de conexión con la BBDD
 
-      ?>
-
-    </div>
-
-  </div>
+    echo "</div>
 
 </div>
 
+</div>";
+}else{
+    echo "NOPEEE";
+}
+?>
 <?php
 require "abajo.php";
 ?>

@@ -156,7 +156,7 @@ function verificarUsuario() {
   xhttp.send(objJSON);
 }
 
-function quitar(id, nombre){
+function quitar(id){
 console.log(id);
 
 elto = document.getElementById(id)
