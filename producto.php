@@ -97,6 +97,14 @@ if (isset($_GET["idCerve"])) {
 
             echo "<table align=start border=1>";
             echo "<tr>";
+            echo "<td> Precio </td>";
+            echo "<td>" . $row["precio"], "€</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<tr>";
+            echo "<td> Stock </td>";
+            echo "<td>" . $row["stock"], "</td>";
+            echo "</tr>";
             echo "<td> Marca </td>";
             echo "<td>" . $row["marca"], "</td>";
             echo "</tr>";
@@ -124,7 +132,7 @@ if (isset($_GET["idCerve"])) {
     echo "</div>
          </div>
          <div class='col-12 mt-4 d-flex justify-content-center' id='desc1'>
-             <input type='number' name='cantidad' min='1' id='cantidad' class='mr-2'>
+             <input type='number' name='cantidad' min='1' id='cantidad' class='mr-2' required>
              <button type='button' class='btn btn-primary'>Añadir al carrito</button>
          </div>
      </div>

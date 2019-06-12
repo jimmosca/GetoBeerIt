@@ -1,4 +1,4 @@
-
+<br>
 <footer class="text-light bg-dark w-100 mt-5">
 <div class="footer-copyright text-center py-3">© 2019 Copyright:
     <a href="./index.php"> GetoBeerIt</a>
