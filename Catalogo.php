@@ -46,7 +46,7 @@ $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
     </form>
   </div>
 
-  <div class= "col-7 "id= "catalogo" >
+  <div class= "col-10 "id= "catalogo" >
     <div class= "row" id="solucion">
       <script> catalogo();</script>
       <div>
