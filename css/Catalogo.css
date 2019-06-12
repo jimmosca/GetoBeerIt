@@ -4,12 +4,14 @@ img {
     height: 250px;
 }
 .row {
-    width: 90%;
-    margin-top: 8%;
-    margin-left: 5%;
+    width: 100%;
+margin-top: 5%;
 }
 .col-12 {
     display: flex;
     margin-bottom: 4%;
+}
+#texto {
+    width: 200px;
 }
 
