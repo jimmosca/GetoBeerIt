@@ -4,7 +4,7 @@ function verificarUsuario() {
   objJSON = JSON.stringify(obj);
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://localhost/mic/GetoBeerIt/comprobarUsr.php");
+  xhttp.open("POST", "./comprobarUsr.php");
   xhttp.setRequestHeader("Content-Type", "application/json");
 
   xhttp.onreadystatechange = function() {
@@ -42,5 +42,13 @@ function verificarUsuario() {
   };
 
   xhttp.send(objJSON);
+}
+
+function quitar(cerveza){
+
+console.log(cerveza);
+
+elto = document.getElementById(cerveza)
+elto.innerHTML="Eliminado";
 
 }

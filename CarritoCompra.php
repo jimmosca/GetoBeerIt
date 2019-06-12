@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <title>Ejercicio 1</title>
- <script src="CarritoCompra.js"></script>
+ <script src="script.js"></script>
  <link rel="stylesheet" type="text/css" href="Estilos.css">
 </head>
 <body>
@@ -20,38 +20,41 @@ for ($anadido=0; $anadido < 1; $anadido++) {
   // code...
 }
 $carrito = array ( "Cerveza1"  => array ( "Precio" => 11.3, "Cantidad" => 1),
-                   "Cerveza2"  => array ( "Precio" => 12.3, "Cantidad" => 1),
-                   "Cerveza3"  => array ( "Precio" => 13.3, "Cantidad" => 4),
-                   "Cerveza4"  => array ( "Precio" => 10.3, "Cantidad" => 1),
-                   "Cerveza5"  => array ( "Precio" => 19.3, "Cantidad" => 1));
-
-
+                   "sza2"  => array ( "Precio" => 12.3, "Cantidad" => 1),
+                   "Cdveza3"  => array ( "Precio" => 13.3, "Cantidad" => 4),
+                   "Cfza4"  => array ( "Precio" => 10.3, "Cantidad" => 1),
+                   "Cerga5"  => array ( "Precio" => 19.3, "Cantidad" => 1));
+$cont=0;
+$precioFinal=0;
 foreach ($carrito as $clave => $valor) {
+$cont++;
 
+var_dump($clave);
 echo"
   <hr width='80%' />
-  <div class='d-flex justify-content-around'>
-        <div class='ml-4'>
+  <div class='d-flex justify-content-around' id=$cont>
+  <div class='ml-1' >
+    $cont
+  </div>
+        <div class='ml-4' >
           {$clave}
         </div>
-        <div col-6> Cantidad: <input type='number' class='form-control col-5' onclick='refrescar()' name='menos' value = {$valor['Cantidad']}></div>
+        <div col-6> Cantidad: {$valor['Cantidad']} </div>
         <div>";
-$precio = $valor["Precio"] * $valor["Cantidad"];
-var_dump($precio);
-           echo "Precio: <input type='text' value=$precio class='field left col-4' readonly>
+        $precio = $valor['Cantidad']*$valor['Precio'];
+        echo "Precio: $precio
         </div>
+        <div class = 'text-danger' onclick = quitar($cont)> x </div>
    </div>
   <hr width='80%' />";
-
-
-    // $array[3] se actualizará con cada valor de $array...
-
-
+  $precioFinal=$precioFinal+$precio;
 }
-
+echo "<div class = 'text-right col-4 offset-6'><b>Precio Final: $precioFinal </b></div>";
 ?>
 
 
+
+<br><br><br>
 <form action="login.php" method="post" class = "col-4 offset-9" >
 	<input type="submit" value="Ok!" name="Comprar">
   <img src="imagenes/tarjeta.png">
