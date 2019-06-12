@@ -1,12 +1,7 @@
-
+<br>
 <footer class="text-light bg-dark w-100 mt-5">
-  <div class="row justify-content-around flex-nowrap">
-    <div class="p-4">
-      <p><i class="fa fa-home"></i>   2ºB, C/ Playa de Liencres, Las Rozas, Madrid</p>
-      <p><i class="fa fa-phone"></i>   +34 666 555 444</p>
-      <p><i class="fa fa-envelope"></i>   crevecealo@u-tad.com</p>
-      <p>Copyright © 2008 Apple Inc. All rights reserved.</p>
-    </div>
+<div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="./index.php"> GetoBeerIt</a>
   </div>
 </footer>
 
