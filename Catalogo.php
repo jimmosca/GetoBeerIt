@@ -48,7 +48,7 @@ Botellas:<br>
 </div>
 
 <?php
-//include "Catalogo2Datos.php";
+require "abajo.php";
 ?>
 <div class= "col-7 "id= "catalogo">
 

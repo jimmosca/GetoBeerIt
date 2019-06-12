@@ -116,11 +116,7 @@ function verificarUsuario() {
   objJSON = JSON.stringify(obj);
 
   var xhttp = new XMLHttpRequest();
-<<<<<<< HEAD
   xhttp.open("POST", "./comprobarUsr.php");
-=======
-  xhttp.open("POST", "http://localhost/bea/GetoBeerIt/comprobarUsr.php");
->>>>>>> c05825f2bfa039cf85b8bba97196bd77096a23bb
   xhttp.setRequestHeader("Content-Type", "application/json");
 
   xhttp.onreadystatechange = function() {
