@@ -7,8 +7,10 @@ require "conexionBBDD.php";
 
 
 $nombre=$_SESSION["nombre"];
-echo "<br><br><br>";
+
 var_dump($nombre);
 $query = "INSERT INTO compras(Nombre) VALUES ('$nombre')";
 $result = $conn->query($query);
+
+echo "<br><br><br> ¡Se ha realizado satisfactoriamente la compra, esperamos que disfrutes con tus productos, vuelve pronto!";
 ?>
