@@ -47,18 +47,16 @@ Botellas:<br>
 </form>
 </div>
 
-<?php
-require "abajo.php";
-?>
 <div class= "col-7 "id= "catalogo">
 
 SOLUCIÓN <br><br>
 <div class= "row" id="solucion"> 
 <div>
 </div>
-
+</div>
 </div>
 
+<?php require 'abajo.php'; ?>
 
 
 
