@@ -101,8 +101,7 @@ function pintaProducto(objeto) {
       divtext.appendChild(parrafobotella);
 
       div.appendChild(divtext);
-     
-
+    
       general.appendChild(div);
       
 		}

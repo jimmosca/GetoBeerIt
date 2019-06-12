@@ -7,8 +7,7 @@ inicioPag("Catalogo", "Catalogo.css");
 require "navBar.php";
 $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
   ?>
- 
-  <script src="script.js" charset="utf-8"></script>
+ <script src="script.js" charset="utf-8"></script>
 
 <div class= "row">
 <div class= "col-2 "id= "formulario">
@@ -42,7 +41,7 @@ Botellas:<br>
     <input type='radio' name='botle' value='330'><label>330ml</label><br/>
 
  
-    <input type="button" Value= "Enviar" onclick = "catalogo()">
+    <input type="button" Value= "Enviar" onclick= "catalogo()">
  
 </form>
 </div>
@@ -51,6 +50,7 @@ Botellas:<br>
 
 SOLUCIÓN <br><br>
 <div class= "row" id="solucion"> 
+
 <div>
 </div>
 </div>
