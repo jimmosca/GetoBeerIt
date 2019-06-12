@@ -163,16 +163,16 @@ if (isset($_GET["idCerve"])) {
             echo "<tr>";
             echo "<td>" . $row["usuario"], "</td>";
             echo "<td>" . $row["opinion"], "</td>";
-            if($row["estrellas"] = 1){
-                echo "<td><img src='imagenes/1estrella.jpeg id='1'></td>" . PHP_EOL;    
-            }else if($row["estrellas"] = 2){
-                echo "<td><img src='imagenes/2estrella.jpeg id='2'></td>" . PHP_EOL;  
-            }else if($row["estrellas"] = 3){
-                echo "<td><img src='imagenes/3estrella.jpeg id='3'></td>" . PHP_EOL;  
-            }else if($row["estrellas"] = 4){
-                echo "<td><img src='imagenes/4estrella.jpeg id='4'></td>" . PHP_EOL;  
+            if($row["estrellas"] == 1){  
+                echo "<td><img src='imagenes/1estrella.png' id='1' height='40'></td>";    
+            }else if($row["estrellas"] == 2){
+                echo "<td><img src='imagenes/2estrella.png' id='2' height='40'></td>";  
+            }else if($row["estrellas"] == 3){
+                echo "<td><img src='imagenes/3estrella.png' id='3' height='40'></td>";  
+            }else if($row["estrellas"] == 4){
+                echo "<td><img src='imagenes/4estrella.png' id='4' height='40'></td>";  
             }else {
-                echo "<td><img src='imagenes/5estrella.jpeg id='5'></td>" . PHP_EOL;  
+                echo "<td><img src='imagenes/5estrella.png' id='5' height='40'></td>";  
             }
             echo "</tr>";
         }
