@@ -12,6 +12,7 @@ $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
 <div class= "row">
   <div class= "col-2 "id= "formulario">
     <form >
+        <br>
       Pais
       <select name="paises" id = "pais" >
         <?php
@@ -20,29 +21,27 @@ $arrayPaises = [ "Selecciona","Alemania", "Bélgica", "España"];
         }
         ?>
       </select>
-
+      <br>
       <br>
       Tipo/Familia:<br>
       <input type="radio" name="tipo_cerveza.nombre" value="Ale"><label>Ale</label><br/>
       <input type="radio" name="tipo_cerveza.nombre" value="Lager"><label>Lager</label><br/>
       <input type="radio" name="tipo_cerveza.nombre" value="Pale"><label>Pale</label><br/>
       <input type="radio" name="tipo_cerveza.nombre" value="Lambic"><label>Lambic</label><br/>
-
+      <br>
       Precios: <br>
 
       <input type='radio' name='price' value='1-5'><label>1-5€</label><br/>
       <input type='radio' name='price' value='5-10'><label>5-10€</label><br/>
       <input type='radio' name='price' value='10-15'><label>10-15€</label><br/>
-
+      <br>
       Botellas:<br>
 
       <input type='radio' name='botle' value='660'><label>660 ml</label><br/>
       <input type='radio' name='botle' value='500'><label>500 ml </label><br/>
       <input type='radio' name='botle' value='330'><label>330ml</label><br/>
-
-
+      <br>
       <input type="button" Value= "Enviar" onclick= "catalogo()">
-
     </form>
   </div>
 

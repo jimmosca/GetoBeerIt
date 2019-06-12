@@ -55,13 +55,16 @@ function pintaProducto(objeto) {
   var general = document.getElementById("solucion");
     general.innerHTML = " ";
 
+
     var arrProductos =  objeto["productos"];
+
 
 		for(var i = 0; i < arrProductos.length; i++){
       var div = document.createElement("div");
       div.setAttribute("class","col-12 col-md-6 col-lg-4");
       div.setAttribute("id", "productos_" + arrProductos[i].id);
       div.setAttribute("onclick","producto(this.id)");
+
 
       var divimage = document.createElement("div");
       divimage.setAttribute("id","imagen");
@@ -70,8 +73,10 @@ function pintaProducto(objeto) {
 
       for (let index = 0; index < arrProductos.length; index++) {
 
+
         var img = document.createElement("img");
         img.setAttribute("src", "./imagenes/" + arrProductos[i].imagen);
+
 
         var parrafonombre = document.createElement("p");
         var parrafotipo = document.createElement("p");
@@ -79,11 +84,13 @@ function pintaProducto(objeto) {
         var parrafobotella = document.createElement("p");
         var parrafopais = document.createElement("p");
 
+
         var nombre = document.createTextNode(arrProductos[i].nombre);
         var tipo = document.createTextNode(arrProductos[i].tipo);
         var precio = document.createTextNode(arrProductos[i].precio+"€");
         var pais = document.createTextNode(arrProductos[i].pais);
         var botella = document.createTextNode(arrProductos[i].botella+"ml");
+
 
         parrafonombre.appendChild(nombre);
         parrafotipo.appendChild(tipo);
@@ -91,8 +98,10 @@ function pintaProducto(objeto) {
         parrafopais.appendChild(pais);
         parrafobotella.appendChild(botella);
 
+
       }
       divimage.appendChild(img);
+
 
       div.appendChild(divimage);
       divtext.appendChild(parrafonombre);
@@ -101,7 +110,12 @@ function pintaProducto(objeto) {
       divtext.appendChild(parrafopais);
       divtext.appendChild(parrafobotella);
 
+
+
+
+
       div.appendChild(divtext);
+      
 
 
       general.appendChild(div);
