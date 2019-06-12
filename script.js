@@ -180,30 +180,41 @@ elto.innerHTML="Eliminado ";
 function producto(identificador){
   window.location.assign("./producto.php?idCerve=" + identificador);
 }
-function addCarrito(id){
-  var xhttp = new XMLHttpRequest();
+function addCarrito(id, sesion){
+  var contenedor = document.getElementById('descripcion');
+  var respuesta = document.createElement('p');
+  if (sesion) {
+    var xhttp = new XMLHttpRequest();
 
-  var elto = document.getElementById("cantidad");
-  var cantidad = elto.value;
+    var elto = document.getElementById("cantidad");
+    var cantidad = elto.value;
 
-  xhttp.open("GET", "./auxCarrito.php?id=" + id + "&cantidad=" + cantidad);
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+    xhttp.open("GET", "./auxCarrito.php?id=" + id + "&cantidad=" + cantidad);
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
 
-      var respuestaJSON = JSON.parse(this.responseText);
+        var respuestaJSON = JSON.parse(this.responseText);
 
-      if(respuestaJSON["estado"] == "OK"){
-        console.log("COMMEMDEMME");
+        if(respuestaJSON["estado"] == "OK"){
+          var texto = document.createTextNode("El producto ha sido correctamente añadido al carrito.");
+        }else{
+          var texto = document.createTextNode("ERROR! El producto no ha sido añadido al carrito.");
+        }
+        respuesta.appendChild(texto);
+        contenedor.appendChild(respuesta);
       }else{
-        console.log("ZAMMOMODOM");
+        console.log(this.readyState + " " + this.status);
+        if (this.readyState == 4 && this.status == 404) {
+          alert("URL INCORRECTA");
+        }
       }
-    }else{
-      console.log(this.readyState + " " + this.status);
-      if (this.readyState == 4 && this.status == 404) {
-        alert("URL INCORRECTA");
-      }
-    }
-  };
 
-  xhttp.send();
+    };
+
+    xhttp.send();
+  }else {
+      window.location.assign("./login.php");
+  }
+
+
 }

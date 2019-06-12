@@ -132,7 +132,7 @@ if (isset($_GET["idCerve"])) {
   </div>
   <div class='col-12 mt-4 d-flex justify-content-center' id='desc1'>
   <input type='number' name='cantidad' min='1' value='1' id='cantidad' class='mr-2' required>
-  <button type='button' class='btn btn-primary' onclick='addCarrito($selected)'>Añadir al carrito</button>
+  <button type='button' class='btn btn-primary' onclick='addCarrito($selected,".isset($_SESSION['nombre']).")'>Añadir al carrito</button>
   </div>
   </div>
   </div>
